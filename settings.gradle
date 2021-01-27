@@ -1,0 +1,3 @@
+include ':devtools'
+include ':demo'
+rootProject.name = "droid-devtools"
