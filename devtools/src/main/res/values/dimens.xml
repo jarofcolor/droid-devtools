@@ -1,0 +1,8 @@
+<resources>
+    <dimen name="dt_top_padding">25dp</dimen>
+    <dimen name="dt_default_padding">16dp</dimen>
+    <dimen name="dt_default_margin">16dp</dimen>
+    <dimen name="dt_text_size_18">18sp</dimen>
+    <dimen name="dt_text_size_14">14sp</dimen>
+    <dimen name="dt_text_size_12">12sp</dimen>
+</resources>

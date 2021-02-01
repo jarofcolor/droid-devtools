@@ -3,11 +3,19 @@
     package="real.droid.devtools">
 
     <application>
-        <activity android:name=".DevToolsActivity" android:label="Dev Tools" android:launchMode="singleInstance">
+        <activity
+            android:name=".DevToolsActivity"
+            android:label="Dev Tools"
+            android:launchMode="singleInstance"
+            android:theme="@style/DT.Normal">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".ui.dir.DirListActivity"
+            android:theme="@style/DT.Normal" />
     </application>
 </manifest>
