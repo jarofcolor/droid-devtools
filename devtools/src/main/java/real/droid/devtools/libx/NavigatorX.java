@@ -64,7 +64,7 @@ public class NavigatorX {
         this.push(fragment, null);
     }
 
-    public void push(Fragment fragment, INavigation result) {
+    public synchronized void push(Fragment fragment, INavigation result) {
         Activity activity = activityRef.get();
         if (activity != null) {
             FragmentTransaction transaction = activity.getFragmentManager().
@@ -92,11 +92,9 @@ public class NavigatorX {
                     transaction.remove(array.get(i).first);
                 }
             }
-            synchronized (this) {
-                array = temp;
-                if (!isContains) {
-                    array.add(new Pair<>(fragment, result));
-                }
+            array = temp;
+            if (!isContains) {
+                array.add(new Pair<>(fragment, result));
             }
             transaction.show(fragment).commit();
         }
@@ -106,19 +104,19 @@ public class NavigatorX {
         this.pop(null);
     }
 
-    public <T> void pop(T result) {
+    public synchronized <T> void pop(T result) {
         Activity activity = activityRef.get();
         if (activity != null) {
             synchronized (this) {
                 if (array.size() > 1) {
-                    Pair<Fragment, INavigation> pair = array.get(array.size() - 1);
+                    Pair<Fragment, INavigation> pair = array.remove(array.size() - 1);
                     NavigatorX.INavigation navigation = pair.second;
                     if (navigation != null && result != null) {
                         navigation.onResult(result);
                     }
                     activity.getFragmentManager().beginTransaction()
                             .remove(pair.first)
-                            .show(array.get(array.size() - 2).first)
+                            .show(array.get(array.size() - 1).first)
                             .commit();
                 }
             }
@@ -130,7 +128,9 @@ public class NavigatorX {
     }
 
     public synchronized void destroy() {
-        map.remove(activityRef);
+        synchronized (NavigatorX.class){
+            map.remove(activityRef);
+        }
         activityRef.clear();
     }
 }
