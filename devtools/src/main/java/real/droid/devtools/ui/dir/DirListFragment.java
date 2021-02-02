@@ -1,6 +1,5 @@
 package real.droid.devtools.ui.dir;
 
-import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,12 +10,13 @@ import java.io.File;
 import java.util.ArrayList;
 
 import real.droid.devtools.R;
+import real.droid.devtools.base.BaseFragment;
+import real.droid.devtools.ui.text.EditorFragment;
 import real.droid.devtools.wigets.Toolbar;
-import real.droid.libx.core.BundleX;
 import real.droid.libx.core.FragmentX;
 import real.droid.libx.core.NavigatorX;
 
-public class DirListFragment extends Fragment {
+public class DirListFragment extends BaseFragment {
 
     public static final String KEY_TITLES = "key_titles";
     public static final String KEY_DIRS = "key_data";
@@ -77,6 +77,9 @@ public class DirListFragment extends Fragment {
                             addArg(DirListFragment.KEY_TITLES, fileItem.name).
                             addArg(DirListFragment.KEY_DIRS, file.getAbsolutePath()).
                             fragment());
+                else {
+                    new FileMenuDialog(file.getAbsolutePath(), getActivity()).show();
+                }
             }
         });
     }

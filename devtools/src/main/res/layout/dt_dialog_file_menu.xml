@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="240dp"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/dt_dp_16"
+    android:paddingRight="@dimen/dt_dp_16">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dt_dp_60"
+        android:gravity="center_vertical"
+        android:text="@string/dt_file_menu_title"
+        android:textColor="@color/red"
+        android:textSize="@dimen/dt_sp_18" />
+
+    <TextView
+        android:id="@+id/tv_file_text_open"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dt_dp_60"
+        android:gravity="center_vertical"
+        android:text="@string/dt_file_menu_text_open"
+        android:textSize="@dimen/dt_sp_16" />
+</LinearLayout>

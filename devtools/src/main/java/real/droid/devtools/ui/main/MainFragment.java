@@ -7,11 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import real.droid.devtools.R;
+import real.droid.devtools.base.BaseFragment;
 import real.droid.devtools.ui.dir.DirListFragment;
 import real.droid.libx.core.FragmentX;
 import real.droid.libx.core.NavigatorX;
 
-public class MainFragment extends Fragment {
+public class MainFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.dt_fragment_main, container, false);
