@@ -13,10 +13,5 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:launchMode="singleInstance"
-            android:name=".ui.dir.DirListActivity"
-            android:theme="@style/DT.Normal" />
     </application>
 </manifest>
