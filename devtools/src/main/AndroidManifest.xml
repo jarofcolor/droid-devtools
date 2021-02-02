@@ -15,6 +15,7 @@
         </activity>
 
         <activity
+            android:launchMode="singleInstance"
             android:name=".ui.dir.DirListActivity"
             android:theme="@style/DT.Normal" />
     </application>
