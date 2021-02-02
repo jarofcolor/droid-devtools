@@ -6,16 +6,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import java.io.File;
 import java.util.ArrayList;
 
 import real.droid.devtools.R;
-import real.droid.devtools.libx.FragmentX;
-import real.droid.devtools.libx.NavigatorX;
 import real.droid.devtools.wigets.Toolbar;
 import real.droid.libx.core.BundleX;
+import real.droid.libx.core.FragmentX;
+import real.droid.libx.core.NavigatorX;
 
 public class DirListFragment extends Fragment {
 
@@ -74,11 +73,10 @@ public class DirListFragment extends Fragment {
                 DirListViewAdapter.FileItem fileItem = (DirListViewAdapter.FileItem) item;
                 File file = new File(fileItem.path, fileItem.name);
                 if (file.isDirectory())
-                    NavigatorX.on(getActivity()).push(FragmentX.on(new DirListFragment()).bundle(
-                            new BundleX().
-                                    putString(DirListFragment.KEY_TITLES, fileItem.name).
-                                    putString(DirListFragment.KEY_DIRS, file.getAbsolutePath())
-                    ).fragment());
+                    NavigatorX.on(getActivity()).push(FragmentX.on(new DirListFragment()).
+                            addArg(DirListFragment.KEY_TITLES, fileItem.name).
+                            addArg(DirListFragment.KEY_DIRS, file.getAbsolutePath()).
+                            fragment());
             }
         });
     }

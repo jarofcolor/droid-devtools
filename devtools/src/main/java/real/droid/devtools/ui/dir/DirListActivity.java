@@ -4,9 +4,8 @@ import android.app.Activity;
 import android.os.Bundle;
 
 import real.droid.devtools.R;
-import real.droid.devtools.libx.FragmentX;
-import real.droid.devtools.libx.NavigatorX;
-import real.droid.libx.core.BundleX;
+import real.droid.libx.core.FragmentX;
+import real.droid.libx.core.NavigatorX;
 
 public class DirListActivity extends Activity {
     private static final String TAG = "DirListActivity";
@@ -20,13 +19,10 @@ public class DirListActivity extends Activity {
         String internalDataPath = getFilesDir().getParentFile().getAbsolutePath();
         String externalDataPath = getExternalFilesDir(null).getParentFile().getAbsolutePath();
 
-        navigatorX.push(FragmentX.on(new DirListFragment()).bundle(
-                new BundleX().
-                        putString(DirListFragment.KEY_TITLES, "内部目录;外部目录").
-                        putString(DirListFragment.KEY_DIRS, internalDataPath + ";" + externalDataPath)
-        ).fragment());
-
-
+        navigatorX.push(FragmentX.on(new DirListFragment()).
+                addArg(DirListFragment.KEY_TITLES, "内部目录;外部目录").
+                addArg(DirListFragment.KEY_DIRS, internalDataPath + ";" + externalDataPath)
+                .fragment());
     }
 
 
