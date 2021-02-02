@@ -2,7 +2,6 @@ package real.droid.devtools;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.View;
 
 import real.droid.devtools.ui.dir.DirListActivity;
 import real.droid.libx.core.IntentX;

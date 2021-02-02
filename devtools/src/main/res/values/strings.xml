@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="dt_dev_tools">开发工具</string>
     <string name="dt_base_features">基础功能</string>
-    <string name="dt_internal_dir_list">内部目录</string>
+    <string name="dt_internal_dir_list">文件查看</string>
 </resources>

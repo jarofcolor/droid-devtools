@@ -2,8 +2,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@android:color/white"
     android:orientation="vertical">
+
+    <real.droid.devtools.wigets.Toolbar
+        android:paddingLeft="@dimen/dt_dp_16"
+        android:paddingRight="@dimen/dt_dp_16"
+        android:id="@+id/toolbar"
+        app:title="@string/dt_internal_dir_list"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dt_dp_66"/>
 
     <ListView
         android:id="@+id/view_list"

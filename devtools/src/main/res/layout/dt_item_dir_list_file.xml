@@ -2,14 +2,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingLeft="@dimen/dt_dp_16"
+    android:paddingRight="@dimen/dt_dp_16">
+
+    <ImageView
+        android:id="@+id/iv_file_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/dt_icon_dir" />
 
     <TextView
-        android:paddingRight="@dimen/dt_default_padding"
-        android:paddingLeft="@dimen/dt_default_padding"
+        android:layout_marginLeft="@dimen/dt_dp_16"
         android:id="@+id/tv_file"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="@dimen/dt_dp_60"
         android:gravity="center_vertical"
-        android:textSize="@dimen/dt_text_size_18" />
+        android:textSize="@dimen/dt_sp_18" />
 </LinearLayout>

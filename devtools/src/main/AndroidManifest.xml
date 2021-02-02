@@ -5,7 +5,7 @@
     <application>
         <activity
             android:name=".DevToolsActivity"
-            android:label="Dev Tools"
+            android:label="@string/dt_dev_tools"
             android:launchMode="singleInstance"
             android:theme="@style/DT.Normal">
             <intent-filter>

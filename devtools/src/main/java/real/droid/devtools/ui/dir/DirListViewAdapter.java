@@ -1,19 +1,16 @@
 package real.droid.devtools.ui.dir;
 
 import android.app.Activity;
-import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.io.File;
 import java.util.ArrayList;
 
 import real.droid.devtools.R;
-import real.droid.devtools.libx.FragmentX;
-import real.droid.devtools.libx.NavigatorX;
-import real.droid.libx.core.BundleX;
 
 public class DirListViewAdapter extends BaseAdapter {
     public static class TitleItem {
@@ -71,6 +68,9 @@ public class DirListViewAdapter extends BaseAdapter {
             View view = View.inflate(context, R.layout.dt_item_dir_list_file, null);
             TextView textView = view.findViewById(R.id.tv_file);
             textView.setText(fileItem.name);
+            ImageView imageView = view.findViewById(R.id.iv_file_type);
+            File file = new File(fileItem.path, fileItem.name);
+            imageView.setImageResource(file.isDirectory() ? R.mipmap.dt_icon_dir : R.mipmap.dt_icon_file);
             return view;
         }
         return null;

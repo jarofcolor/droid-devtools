@@ -3,6 +3,5 @@
     <style name="DT.Normal" parent="android:Theme.Holo.Light.NoActionBar">
         <item name="android:windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
-        <item name="android:windowTranslucentStatus">true</item>
     </style>
 </resources>

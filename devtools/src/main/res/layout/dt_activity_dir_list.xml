@@ -5,7 +5,6 @@
     android:id="@+id/container"
     android:clickable="true"
     android:focusable="true"
-    android:paddingTop="@dimen/dt_top_padding"
     android:orientation="vertical">
 
 </FrameLayout>

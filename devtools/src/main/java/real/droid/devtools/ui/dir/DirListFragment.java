@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 import real.droid.devtools.R;
 import real.droid.devtools.libx.FragmentX;
 import real.droid.devtools.libx.NavigatorX;
+import real.droid.devtools.wigets.Toolbar;
 import real.droid.libx.core.BundleX;
 
 public class DirListFragment extends Fragment {
@@ -33,6 +35,7 @@ public class DirListFragment extends Fragment {
             return;
         }
 
+
         String[] titles = bundle.getString(KEY_TITLES).split(";");
         String[] dirs = bundle.getString(KEY_DIRS).split(";");
         ArrayList<Object> data = new ArrayList<>();
@@ -40,12 +43,28 @@ public class DirListFragment extends Fragment {
             data.add(new DirListViewAdapter.TitleItem(titles[i]));
             String dir = dirs[i];
             String[] files = new File(dir).list();
+            ArrayList<Object> dirList = new ArrayList<>();
+            ArrayList<Object> fileList = new ArrayList<>();
             for (String fileName : files) {
-                data.add(new DirListViewAdapter.FileItem(dir, fileName));
+                File file = new File(dir, fileName);
+                DirListViewAdapter.FileItem item = new DirListViewAdapter.FileItem(dir, fileName);
+                if (file.isDirectory())
+                    dirList.add(item);
+                else
+                    fileList.add(item);
             }
+
+            data.addAll(dirList);
+            data.addAll(fileList);
         }
 
         View view = getView();
+
+        Toolbar toolbar = view.findViewById(R.id.toolbar);
+        toolbar.setOnBackListener(() -> {
+            getActivity().onBackPressed();
+        });
+
         ListView listView = view.findViewById(R.id.view_list);
         listView.setAdapter(new DirListViewAdapter(getActivity(), data));
 
