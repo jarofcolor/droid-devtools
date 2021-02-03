@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:paddingLeft="@dimen/dt_dp_16"
     android:paddingRight="@dimen/dt_dp_16">
 
     <real.droid.devtools.wigets.Toolbar
-        app:hideBack="true"
-        app:title="@string/dt_dev_tools"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dt_dp_66"/>
+        android:layout_height="@dimen/dt_dp_66"
+        app:hideBack="true"
+        app:title="@string/dt_dev_tools" />
 
     <TextView
-        android:textColor="@color/red"
-        android:textSize="@dimen/dt_sp_14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/dt_base_features" />
+        android:text="@string/dt_base_features"
+        android:textColor="@color/red"
+        android:textSize="@dimen/dt_sp_14" />
 
     <include layout="@layout/dt_divider" />
 
@@ -30,12 +30,22 @@
 
         <TextView
             android:id="@+id/tv_file_look"
-            android:textSize="@dimen/dt_sp_12"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:drawableTop="@mipmap/dt_icon_file_manager"
             android:gravity="center"
-            android:text="@string/dt_internal_dir_list" />
+            android:text="@string/dt_file_look"
+            android:textSize="@dimen/dt_sp_12" />
+
+        <TextView
+            android:maxWidth="@dimen/dt_dp_90"
+            android:id="@+id/tv_sp_look"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:drawableTop="@mipmap/dt_icon_sp_manager"
+            android:gravity="center"
+            android:text="@string/dt_sp_look"
+            android:textSize="@dimen/dt_sp_12" />
     </LinearLayout>
 
 </LinearLayout>

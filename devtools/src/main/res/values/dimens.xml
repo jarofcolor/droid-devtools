@@ -1,9 +1,14 @@
 <resources>
     <dimen name="dt_dp_16">16dp</dimen>
+    <dimen name="dt_dp_20">20dp</dimen>
+    <dimen name="dt_dp_25">25dp</dimen>
     <dimen name="dt_dp_60">60dp</dimen>
     <dimen name="dt_dp_66">66dp</dimen>
+    <dimen name="dt_dp_80">80dp</dimen>
+    <dimen name="dt_dp_90">90dp</dimen>
     <dimen name="dt_sp_18">18sp</dimen>
     <dimen name="dt_sp_14">14sp</dimen>
     <dimen name="dt_sp_16">16sp</dimen>
     <dimen name="dt_sp_12">12sp</dimen>
+    <dimen name="dt_sp_10">10sp</dimen>
 </resources>

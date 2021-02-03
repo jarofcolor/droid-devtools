@@ -5,16 +5,22 @@
     android:orientation="vertical">
 
     <real.droid.devtools.wigets.Toolbar
-        android:paddingLeft="@dimen/dt_dp_16"
-        android:paddingRight="@dimen/dt_dp_16"
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dt_dp_66"/>
+        android:layout_height="@dimen/dt_dp_66"
+        android:paddingLeft="@dimen/dt_dp_16"
+        android:paddingRight="@dimen/dt_dp_16" />
 
-    <ListView
-        android:id="@+id/list_view"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:divider="@null"
-        android:listSelector="@null" />
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:textSize="@dimen/dt_sp_12" />
+    </ScrollView>
+
 </LinearLayout>

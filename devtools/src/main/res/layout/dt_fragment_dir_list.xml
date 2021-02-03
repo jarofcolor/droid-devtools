@@ -10,7 +10,7 @@
         android:paddingLeft="@dimen/dt_dp_16"
         android:paddingRight="@dimen/dt_dp_16"
         android:id="@+id/toolbar"
-        app:title="@string/dt_internal_dir_list"
+        app:title="@string/dt_file_look"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dt_dp_66"/>
 

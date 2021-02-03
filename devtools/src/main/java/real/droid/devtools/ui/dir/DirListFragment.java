@@ -18,6 +18,7 @@ import real.droid.libx.core.NavigatorX;
 
 public class DirListFragment extends BaseFragment {
 
+    public static final String KEY_TOOL_BAR_TITLE = "key_tool_bar_title";
     public static final String KEY_TITLES = "key_titles";
     public static final String KEY_DIRS = "key_data";
 
@@ -41,7 +42,10 @@ public class DirListFragment extends BaseFragment {
         for (int i = 0; i < titles.length; i++) {
             data.add(new DirListViewAdapter.TitleItem(titles[i]));
             String dir = dirs[i];
-            String[] files = new File(dir).list();
+            File dirFile = new File(dir);
+            if (!dirFile.exists() && !dirFile.isDirectory())
+                continue;
+            String[] files = dirFile.list();
             ArrayList<Object> dirList = new ArrayList<>();
             ArrayList<Object> fileList = new ArrayList<>();
             for (String fileName : files) {
@@ -64,6 +68,11 @@ public class DirListFragment extends BaseFragment {
             getActivity().onBackPressed();
         });
 
+
+        String toolbarTitle = bundle.getString(KEY_TOOL_BAR_TITLE);
+        if(toolbarTitle != null){
+            toolbar.setTitle(toolbarTitle);
+        }
         ListView listView = view.findViewById(R.id.view_list);
         listView.setAdapter(new DirListViewAdapter(getActivity(), data));
 

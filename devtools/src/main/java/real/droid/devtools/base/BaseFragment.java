@@ -14,6 +14,7 @@ public class BaseFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         View view = getView();
         view.setFocusable(true);
+        view.setClickable(true);
         view.setBackgroundColor(Color.WHITE);
     }
 }
