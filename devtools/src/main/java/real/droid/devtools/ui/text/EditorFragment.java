@@ -62,11 +62,13 @@ public class EditorFragment extends BaseFragment implements NavigatorX.ICanPop {
         toolbar.setTitle(new File(filePath).getName());
 
         saveItem.setOnClickListener(v -> {
+            if (isFileSaving)
+                return;
             isFileSaving = true;
             ThreadX.create().post(() -> {
                 fileX.saveText(editText.getText().toString());
                 isFileSaving = false;
-                ThreadX.ui().post(() -> ToastX.on(getActivity(),R.string.dt_save_success).show());
+                ThreadX.ui().post(() -> ToastX.on(getActivity(), R.string.dt_save_success).show());
             });
         });
     }
